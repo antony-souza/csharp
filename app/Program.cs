@@ -1,34 +1,47 @@
 ﻿using System;
 using System.Drawing;
-using app.interfaces.ICar;
+using app.interfaces.Car;
 
 namespace app;
 
-class Car(string name, string color) : ICar
+class Car : ICar
 {
-    public string Name { get; set; } = name;
-    public string Color { get; set; } = color;
+    public string Name { get; set; }
+    public string Color { get; set; }
+
+    public Car(string name, string color)
+    {
+        Name = name;
+        Color = color;
+    }
     
-    public void PowerOn()
+    public void PowerOn(string msg)
     {
         Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine("Car Powered On");
+        Console.WriteLine($"{msg}");
         Console.ResetColor();
     }
 
-    public void PowerOff()
+    public void PowerOff(string msg)
     {
         Console.ForegroundColor = ConsoleColor.Red;
-        Console.WriteLine("Car Powered Off");
+        Console.WriteLine($"{msg}");
         Console.ResetColor();
     }
 }
 
-class  Program
+class Program
 {
     static void Main()
     {
-        Car car = new Car("BMW", "Black");
-        car.PowerOn();
+        Console.WriteLine("Welcome to C# app");
+        Console.WriteLine("Qual o nome do carro?");
+        string NameCar = Console.ReadLine();
+        Console.WriteLine("Qual a cor do carro?");
+        string ColorCar = Console.ReadLine();
+        Car car = new Car(NameCar, ColorCar);
+        
+        string msg = "Car Powered On";
+        car.PowerOn(msg);
     }
 }

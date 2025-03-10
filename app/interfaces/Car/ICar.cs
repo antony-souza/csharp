@@ -1,7 +1,7 @@
-﻿namespace app.interfaces.ICar;
+﻿namespace app.interfaces.Car;
 
 public interface ICar
 {
-    void PowerOn();
-    void PowerOff();
+     void PowerOn(string msg); 
+     void PowerOff(string msg);
 }
