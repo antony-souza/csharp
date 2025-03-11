@@ -1,10 +1,9 @@
 ﻿# Folders
-bin/
-obj/
+bin
+obj
 .vs/
-.idea/
-.vscode/
-packages/
+.idea
+
 
 # Files
 *.user
