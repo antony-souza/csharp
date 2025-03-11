@@ -22,23 +22,22 @@ class Menu
         {
             ShowMenu();
             string option = Console.ReadLine();
-
+            
             switch (option)
             {
                 case "1":
                     Console.Write(
                         "Digite o nome da pasta dentro de sua pasta de usuário (ex: Downloads, Documentos, Imagens): ");
-                    string filePath = Console.ReadLine();
+                    string folderName = Console.ReadLine();
 
-                    if (string.IsNullOrWhiteSpace(filePath))
+                    if (string.IsNullOrWhiteSpace(folderName))
                     {
                         Console.WriteLine("Nome da pasta inválido. Tente novamente.");
                         continue;
                     }
 
-                    FileOrganizer organizer = new FileOrganizer(filePath);
+                    FileOrganizer organizer = new FileOrganizer(folderName);
                     organizer.OrganizeFiles();
-                    Console.WriteLine("Ornanização concluida!");
                     break;
                 case "2":
                     Console.WriteLine("Saindo...");
