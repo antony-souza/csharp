@@ -1,0 +1,31 @@
+﻿# Folders
+bin/
+obj/
+.vs/
+.idea/
+.vscode/
+packages/
+
+# Files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio for Mac
+.vscode/
+
+# ASP.NET Core
+appsettings.Development.json
+appsettings.Production.json
+appsettings.Staging.json
+
+# Rider
+.idea/
+
+# Logs
+*.log
+
+# Windows Installer files
+Thumbs.db
+Desktop.ini
