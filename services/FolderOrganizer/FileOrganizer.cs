@@ -18,7 +18,7 @@ class FileOrganizer : IFileOrganizer
     {
         if (!Directory.Exists(_filePath))
         {
-            Console.WriteLine($"{_filePath} does not exist");
+            Console.WriteLine($"{_filePath} não existe!");
             return;
         }
 
@@ -27,10 +27,27 @@ class FileOrganizer : IFileOrganizer
         foreach (string file in files)
         {
             string extension = Path.GetExtension(file).TrimStart('.').ToLower();
+            
+            if (string.IsNullOrEmpty(extension))
+            {
+                string othersFolder = Path.Combine(_filePath, "OUTROS");
+                if (!Directory.Exists(othersFolder))
+                {
+                    Directory.CreateDirectory(othersFolder);
+                }
+                
+                string newOthersPath = Path.Combine(othersFolder, Path.GetFileName(file));
+                try
+                {
+                    File.Move(file, newOthersPath);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Erro ao mover o arquivo {file}: {ex.Message}");
+                }
 
-            //Ignora arquivos sem extensão, que não tenham nada após '.'
-            if (string.IsNullOrEmpty(extension)) continue;
-
+                continue;
+            }
             string fileName = Path.Combine(_filePath, extension.ToUpper());
 
             if (!Directory.Exists(fileName))
