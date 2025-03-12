@@ -69,7 +69,7 @@ public class TaskList : ITaskList
 
         for (int i = 0; i < tasks.Count; i++)
         {
-            Console.WriteLine($"🆔 Tarefa #{i + 1}");
+            Console.WriteLine($"🆔 Tarefa #{tasks[i].Id}");
             Console.WriteLine($"📌 Nome: {tasks[i].TaskName}");
             Console.WriteLine($"📝 Descrição: {tasks[i].TaskDescription}");
             Console.WriteLine("==============================");
@@ -107,6 +107,8 @@ public class TaskList : ITaskList
             {
                 case "1":
                     LoadTasks();
+                    Console.WriteLine("\nPressione qualquer tecla para voltar ao Menu de Tarefas...");
+                    Console.ReadKey();
                     break;
 
                 case "2":

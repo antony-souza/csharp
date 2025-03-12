@@ -77,5 +77,7 @@ public class MenuOptionsMain
         Console.Clear();
         TaskList taskList = new TaskList();
         taskList.MenuOptions();
+        Console.WriteLine("\nPressione qualquer tecla para voltar ao Menu Principal...");
+        Console.ReadKey();
     }
 }
