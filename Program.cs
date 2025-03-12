@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using app.services.FolderOrganizer;
+using app.services.tasklist;
 
 namespace app;
 
@@ -11,7 +12,8 @@ class Menu
         Console.ForegroundColor = ConsoleColor.Magenta;
         Console.WriteLine("=== Menu ===");
         Console.WriteLine("1. Organizar arquivos em uma pasta específica");
-        Console.WriteLine("2. Sair");
+        Console.WriteLine("2. Lista de Tarefas");
+        Console.WriteLine("3. Sair");
         Console.WriteLine();
         Console.ResetColor();
         Console.Write("Escolha uma opção: ");
@@ -40,6 +42,10 @@ class Menu
                     organizer.OrganizeFiles();
                     break;
                 case "2":
+                    TaskList taskList = new TaskList();
+                    taskList.LoadTasks();
+                    break;
+                case "3":
                     Console.WriteLine("Saindo...");
                     return;
                 default:
