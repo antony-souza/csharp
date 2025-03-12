@@ -65,9 +65,11 @@ class FileOrganizer : IFileOrganizer
             }
             catch (Exception ex)
             {
+           
                 Console.WriteLine($"Erro ao mover o arquivo {file}: {ex.Message}");
             }
         }
-        Console.WriteLine("Arquivos organizados com sucesso! :)");
+        Console.WriteLine();
+        Console.WriteLine($"✅ Arquivos organizados na pasta {_filePath} com sucesso!");
     }
 }

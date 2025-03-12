@@ -61,10 +61,8 @@ public class TaskList : ITaskList
 
             return new List<Task>();
         }
-
-        // Converter JSON diretamente para um List de objetos
-        List<Task> tasks = System.Text.Json.JsonSerializer.Deserialize<List<Task>>(jsonPath) ??
-                           new List<Task>();
+        
+        List<Task> tasks = JsonSerializer.Deserialize<List<Task>>(jsonPath) ?? new List<Task>();
 
         Console.WriteLine("\n📋 Lista de Tarefas:");
         Console.WriteLine("==============================");
@@ -90,5 +88,51 @@ public class TaskList : ITaskList
 
     public void MenuOptions()
     {
+        bool continueMenu = true;
+
+        while (continueMenu)
+        {
+            Console.Clear();
+            Console.WriteLine("👨‍💻 Menu de Tarefas");
+            Console.WriteLine("==============================");
+            Console.WriteLine("1. Listar todas as tarefas");
+            Console.WriteLine("2. Criar nova tarefa");
+            Console.WriteLine("3. Sair");
+            Console.WriteLine("==============================");
+            Console.Write("Escolha uma opção: ");
+        
+            string option = Console.ReadLine();
+
+            switch (option)
+            {
+                case "1":
+                    LoadTasks();
+                    break;
+
+                case "2":
+                    Console.Write("Digite o nome da tarefa: ");
+                    string taskName = Console.ReadLine();
+
+                    Console.Write("Digite a descrição da tarefa: ");
+                    string taskDescription = Console.ReadLine();
+
+                    CreateNewTask(taskName, taskDescription);
+                    Console.WriteLine("✅ Tarefa criada com sucesso!");
+                    Console.WriteLine("Pressione qualquer tecla para voltar ao menu...");
+                    Console.ReadKey();
+                    break;
+
+                case "3":
+                    Console.WriteLine("👋 Até logo!");
+                    continueMenu = false;
+                    break;
+                default:
+                    Console.WriteLine("⚠️ Opção inválida. Tente novamente.");
+                    Console.WriteLine("Pressione qualquer tecla para continuar...");
+                    Console.ReadKey();
+                    break;
+            }
+        }
     }
+
 }
