@@ -88,9 +88,9 @@ public class TaskList : ITaskList
 
     public void MenuOptions()
     {
-        bool continueMenu = true;
+        bool enabledMenu = true;
 
-        while (continueMenu)
+        while (enabledMenu)
         {
             Console.Clear();
             Console.WriteLine("👨‍💻 Menu de Tarefas");
@@ -126,7 +126,7 @@ public class TaskList : ITaskList
 
                 case "3":
                     Console.WriteLine("👋 Até logo!");
-                    continueMenu = false;
+                    enabledMenu = false;
                     break;
                 default:
                     Console.WriteLine("⚠️ Opção inválida. Tente novamente.");
