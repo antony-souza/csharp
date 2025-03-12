@@ -13,8 +13,8 @@ public class MenuOptionsMain
         Console.WriteLine();
         Console.WriteLine("=== Menu Principal ===");
         Console.WriteLine();
-        Console.WriteLine("1 - Gerenciar Organizador de Arquivos");
-        Console.WriteLine("2 - Gerenciar Lista de Tarefas");
+        Console.WriteLine("1 - Organizador de Arquivos");
+        Console.WriteLine("2 - Lista de Tarefas");
         Console.WriteLine("3 - Sair");
         Console.WriteLine();
         Console.Write("Escolha uma opção: ");
